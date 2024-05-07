@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Events</h1>
-
-<div id="events">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bienvenue sur la page d'accueil</title>
+</head>
+<body>
+<div class="card-container">
   <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= event.title %></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary"><%= event.description %></h6>
+        <p>Voir l'événement : <%= link_to "ici", event_path(event) %></p>
+      </div>
+    </div>
   <% end %>
 </div>
 
 <%= link_to "New event", new_event_path %>
+</body>
+</html>
