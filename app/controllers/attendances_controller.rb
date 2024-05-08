@@ -12,14 +12,13 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/new
   def new
-    @attendance = Attendance.new
+    @attendance = Attendance.new(event_id: params[:event_id])
   end
 
   # GET /attendances/1/edit
   def edit
   end
 
-  # POST /attendances or /attendances.json
   def create
     @attendance = Attendance.new(attendance_params)
 
