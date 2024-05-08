@@ -2018,3 +2018,98 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 3798)
 
 
+[dotenv] Set [36mPUBLISHABLE_KEY[0m and [36mSECRET_KEY[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour3.1/eventbritev2/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-05-08 17:16:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 113.0ms | Allocations: 16094)
+  Rendered layout layouts/application.html.erb (Duration: 326.8ms | Allocations: 50340)
+Completed 200 OK in 653ms (Views: 330.0ms | ActiveRecord: 5.2ms | Allocations: 338183)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-08 17:16:08 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1555)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 1654)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms | Allocations: 4360)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<%= render @event %>
+
+<div>
+  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Back to events", events_path %>
+
+  <%= button_to "Destroy this event", @event, method: :delete %>
+  <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: MONTANT À PAYER), class: "btn btn-primary", remote: true %>
+</div>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <%= render @event %>
+4:    
+5:    <div>
+6:      <%= link_to "Edit this event", edit_event_path(@event) %> |
+7:      <%= link_to "Back to events", events_path %>
+8:    
+9:      <%= button_to "Destroy this event", @event, method: :delete %>
+10:      <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: MONTANT À PAYER), class: "btn btn-primary", remote: true %>
+11:    </div>
+  
+app/views/events/show.html.erb:10: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2024-05-08 17:18:25 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 5470)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 20456)
+Completed 200 OK in 52ms (Views: 32.5ms | ActiveRecord: 4.2ms | Allocations: 24214)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-08 17:18:27 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.8ms | Allocations: 456)
+  Rendered events/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1725)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 2928)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 0.4ms | Allocations: 4312)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-08 17:18:33 +0200
+  
+ActionController::RoutingError (uninitialized constant CheckoutController):
+  
+Started GET "/events/1" for 127.0.0.1 at 2024-05-08 17:18:33 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.2ms | Allocations: 46)
+  Rendered events/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 680)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 1883)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 2496)
+
+

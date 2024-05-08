@@ -7,4 +7,5 @@
   <%= link_to "Back to events", events_path %>
 
   <%= button_to "Destroy this event", @event, method: :delete %>
+  <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @event.price), class: "btn btn-primary", remote: true %>
 </div>
