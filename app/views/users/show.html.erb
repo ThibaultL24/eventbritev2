@@ -1,0 +1,10 @@
+<h1>User Profile</h1>
+
+<dl>
+  <dt>Email:</dt>
+  <dd><%= @user.email %></dd>
+  <!-- Autres informations sur l'utilisateur à afficher -->
+</dl>
+
+<%= link_to 'Edit Profile', edit_user_path(@user) %>
+<%= link_to 'Back', users_path %>
