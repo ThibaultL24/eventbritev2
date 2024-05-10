@@ -3,9 +3,9 @@ class AttendancesController < ApplicationController
 
   # GET /attendances or /attendances.json
   def index
-    @attendances = Attendance.all
+    @event = Event.find(params[:event_id])
+    @attendees = @event.attendees
   end
-
   # GET /attendances/1 or /attendances/1.json
   def show
   end

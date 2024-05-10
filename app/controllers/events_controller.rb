@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[show edit update destroy]
 
   # GET /events or /events.json
   def index
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @attendance = Attendance.new(event: @event)
   end
+
   # GET /events/new
   def new
     @event = Event.new
@@ -58,13 +59,22 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:title, :description, :start_date, :duration, :price, :location, :user_id)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:title, :description, :start_date, :duration, :price, :location, :user_id)
+  end
+
+  def require_creator
+    @event = Event.find(params[:id])
+    unless current_user == @event.user
+      flash[:alert] = "Vous n'êtes pas autorisé à accéder à cette page."
+      redirect_to events_path
     end
+  end
 end

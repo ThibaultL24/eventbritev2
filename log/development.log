@@ -3617,3 +3617,2291 @@ Processing by AttendancesController#new as HTML
 Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.2ms | Allocations: 2980)
 
 
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-05-10 10:28:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 56.6ms | Allocations: 16095)
+  Rendered layout layouts/application.html.erb (Duration: 139.2ms | Allocations: 50262)
+Completed 200 OK in 369ms (Views: 141.7ms | ActiveRecord: 2.2ms | Allocations: 339115)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 10:28:59 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 13.7ms | Allocations: 4611)
+  Rendered events/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4928)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 6135)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 6510)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 10:29:02 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.1ms | Allocations: 430)
+  Rendered events/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2650)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2741)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.6ms | Allocations: 11287)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    3: <%= render @event %>
+    4: 
+    5: <div>
+    6:   <% unless current_user.admin? || @event.attendees.include?(current_user) %>
+    7:   <%= link_to "S'inscrire à cet événement", new_attendance_path(event_id: @event.id), class: "btn btn-primary" %>
+    8: <% end %>
+    9: <% if current_user == @event.user %>
+  
+app/views/events/show.html.erb:6
+Started GET "/" for 127.0.0.1 at 2024-05-10 10:29:05 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 667)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2106)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 2380)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 10:31:38 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.5ms | Allocations: 1581)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1660)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2873)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3154)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 10:31:44 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 219)
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 527)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2747)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4021)
+Completed 200 OK in 46ms (Views: 10.9ms | ActiveRecord: 0.3ms | Allocations: 16112)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:32:11 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"thibaultL@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thibaultl@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 1139)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2039)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3216)
+Completed 422 Unprocessable Entity in 190ms (Views: 4.7ms | ActiveRecord: 1.5ms | Allocations: 9944)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:43:11 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (7.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test123@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 956)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1847)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3024)
+Completed 422 Unprocessable Entity in 346ms (Views: 10.4ms | ActiveRecord: 10.3ms | Allocations: 8318)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 10:50:31 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4867)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 19768)
+Completed 200 OK in 47ms (Views: 31.8ms | ActiveRecord: 2.2ms | Allocations: 23503)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 10:50:35 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 507)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2773)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4040)
+Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 9187)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:51:07 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@hotmail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"thib", "last_name"=>"lol", "description"=>"yolo"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :description. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f876e5eae78>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@hotmail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"thib", "last_name"=>"lol", "description"=>"yolo"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test123@hotmail.fr"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 356)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2194)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3371)
+Completed 422 Unprocessable Entity in 326ms (Views: 7.9ms | ActiveRecord: 1.9ms | Allocations: 9248)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:51:13 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@hotmail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"thib", "last_name"=>"lol", "description"=>"vjdfvrlbebv"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :description. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f876e65a3e0>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@hotmail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"thib", "last_name"=>"lol", "description"=>"vjdfvrlbebv"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test123@hotmail.fr"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 667)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2946)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4137)
+Completed 422 Unprocessable Entity in 37ms (Views: 15.1ms | ActiveRecord: 3.8ms | Allocations: 9259)
+
+
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 10:55:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 235)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 528)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 4581)
+  Rendered layout layouts/application.html.erb (Duration: 106.6ms | Allocations: 37076)
+Completed 200 OK in 495ms (Views: 399.2ms | ActiveRecord: 2.4ms | Allocations: 339151)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:55:57 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yolo", "last_name"=>"yala", "description"=>"laliloulelo"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :description. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fec3e5a5a00>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yolo", "last_name"=>"yala", "description"=>"laliloulelo"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 478)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2323)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3500)
+Completed 422 Unprocessable Entity in 348ms (Views: 10.6ms | ActiveRecord: 2.3ms | Allocations: 13114)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 10:56:39 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 64.8ms | Allocations: 10935)
+  Rendered layout layouts/application.html.erb (Duration: 81.5ms | Allocations: 25735)
+Completed 200 OK in 99ms (Views: 81.6ms | ActiveRecord: 2.5ms | Allocations: 29781)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:56:50 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yolo", "last_name"=>"yala", "description"=>""}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :description. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fec3e3d2ef8>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yolo", "last_name"=>"yala", "description"=>""}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (3.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 3.1ms | Allocations: 923)
+  Rendered devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 507)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.9ms | Allocations: 4339)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5606)
+Completed 422 Unprocessable Entity in 364ms (Views: 27.6ms | ActiveRecord: 4.7ms | Allocations: 16613)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:57:09 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yolo", "last_name"=>"yala", "description"=>"cdsbcdvld"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :description. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fec3e523848>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yolo", "last_name"=>"yala", "description"=>"cdsbcdvld"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 348)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2175)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 3352)
+Completed 422 Unprocessable Entity in 328ms (Views: 12.4ms | ActiveRecord: 2.7ms | Allocations: 8495)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 10:57:37 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 507)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2741)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 17299)
+Completed 200 OK in 36ms (Views: 27.4ms | ActiveRecord: 1.9ms | Allocations: 23862)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 10:58:23 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 507)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 17013)
+Completed 200 OK in 38ms (Views: 25.5ms | ActiveRecord: 3.8ms | Allocations: 23498)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 10:58:46 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"loool", "last_name"=>"loooooool"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 356)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1586)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 2769)
+Completed 422 Unprocessable Entity in 323ms (Views: 11.0ms | ActiveRecord: 2.3ms | Allocations: 8541)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 10:59:53 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 507)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2539)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 17096)
+Completed 200 OK in 35ms (Views: 25.5ms | ActiveRecord: 2.3ms | Allocations: 23643)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 11:00:12 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"yoloooo", "last_name"=>"looool"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "description", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "yolo1@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-05-10 09:00:12.414747"], ["updated_at", "2024-05-10 09:00:12.414747"], ["description", nil], ["first_name", "yoloooo"], ["last_name", "looool"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.8ms | Allocations: 151)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.0ms | Allocations: 368)
+UserMailer#welcome_email: processed outbound mail in 12.2ms
+Delivered mail 663de21c85ad9_17943e1c288ee@TL.mail (12.7ms)
+Date: Fri, 10 May 2024 11:00:12 +0200
+To: yolo1@gmail.com
+Message-ID: <663de21c85ad9_17943e1c288ee@TL.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+  <h1>Bienvenue chez nous !</h1>
+  <p>Bonjour yoloooo,</p>
+  <p>Merci de vous =C3=AAtre inscrit sur notre site !</p>
+  <p>Cordialement,</p>
+  <p>L'=C3=A9quipe de notre site</p>
+</body>
+</html>
+  </body>
+</html>
+
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 483ms (ActiveRecord: 8.5ms | Allocations: 28196)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:00:12 +0200
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 5063)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 7573)
+Completed 200 OK in 46ms (Views: 28.3ms | ActiveRecord: 1.4ms | Allocations: 10200)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 11:00:17 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 1397)
+Completed 200 OK in 22ms (Views: 12.7ms | ActiveRecord: 0.5ms | Allocations: 4420)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 11:03:02 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 16153)
+Completed 200 OK in 48ms (Views: 26.8ms | ActiveRecord: 3.2ms | Allocations: 25625)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 11:04:29 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1183)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 15713)
+Completed 200 OK in 46ms (Views: 22.7ms | ActiveRecord: 2.8ms | Allocations: 25138)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:04:33 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 5016)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 7043)
+Completed 200 OK in 27ms (Views: 17.5ms | ActiveRecord: 1.1ms | Allocations: 9403)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 11:05:11 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 737)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 4233)
+Completed 200 OK in 27ms (Views: 19.0ms | ActiveRecord: 0.4ms | Allocations: 6228)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:05:15 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 35.2ms | Allocations: 6495)
+  Rendered events/new.html.erb within layouts/application (Duration: 37.3ms | Allocations: 6777)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 8554)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.2ms | Allocations: 8899)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:29:06 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 4.2ms | Allocations: 2241)
+  Rendered events/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2529)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 39.6ms | Allocations: 22102)
+Completed 200 OK in 71ms (Views: 41.2ms | ActiveRecord: 2.9ms | Allocations: 29387)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:31:31 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 7.8ms | Allocations: 2244)
+  Rendered events/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 2530)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 45.9ms | Allocations: 22433)
+Completed 200 OK in 76ms (Views: 50.8ms | ActiveRecord: 3.5ms | Allocations: 30486)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:33:14 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.1ms | Allocations: 1566)
+  Rendered events/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1645)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3417)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 3687)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 11:33:16 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1120)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 2289)
+Completed 200 OK in 18ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 5199)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:33:22 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.7ms | Allocations: 1551)
+  Rendered events/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1630)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3406)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 3676)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:33:23 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 993)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 2984)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 0.4ms | Allocations: 3372)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:33:25 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 659)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 2647)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.6ms | Allocations: 2910)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:33:27 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.5ms | Allocations: 340)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:6
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:9
+  Rendered events/show.html.erb within layouts/application (Duration: 31.6ms | Allocations: 8702)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 9863)
+Completed 200 OK in 72ms (Views: 33.9ms | ActiveRecord: 2.4ms | Allocations: 17035)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:34:50 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.1ms | Allocations: 321)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:7
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:11
+  Rendered events/show.html.erb within layouts/application (Duration: 26.2ms | Allocations: 11094)
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 25623)
+Completed 200 OK in 80ms (Views: 44.8ms | ActiveRecord: 4.2ms | Allocations: 38987)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:34:56 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 6.0ms | Allocations: 2145)
+  Rendered events/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2419)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 4191)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.1ms | Allocations: 4531)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2024-05-10 11:34:57 +0200
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.1ms | Allocations: 1610)
+  Rendered events/edit.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1868)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 3640)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.2ms | Allocations: 4317)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:36:33 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1490)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 1582)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 5.6ms | Allocations: 14936)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `event' for #<ActionView::Base:0x00000000046d48>):
+    1: <%= form_with(model: event) do |form| %>
+    2:   <% if event.errors.any? %>
+    3:     <div class="alert alert-danger" role="alert">
+    4:       <h4 class="alert-heading">Oops! <%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h4>
+  
+app/views/events/show.html.erb:1
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:38:08 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 5449)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 25572)
+Completed 200 OK in 66ms (Views: 46.5ms | ActiveRecord: 2.9ms | Allocations: 29304)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:38:10 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 13.3ms | Allocations: 2183)
+  Rendered events/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2458)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | Allocations: 4230)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.1ms | Allocations: 4573)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:38:11 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.2ms | Allocations: 303)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 6302)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 7468)
+Completed 200 OK in 43ms (Views: 24.2ms | ActiveRecord: 1.8ms | Allocations: 13044)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 11:38:13 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 6.1ms | Allocations: 1219)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1498)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 3271)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.5ms | Allocations: 3852)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 11:38:19 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 659)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 2655)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.4ms | Allocations: 2918)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:38:21 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.9ms | Allocations: 46)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 13.7ms | Allocations: 2559)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 3720)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 0.6ms | Allocations: 4655)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:38:24 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.3ms | Allocations: 1528)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1607)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 3379)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms | Allocations: 3649)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 11:38:27 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 21.1ms | Allocations: 1114)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 2279)
+Completed 200 OK in 65ms (Views: 48.5ms | ActiveRecord: 0.3ms | Allocations: 5172)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:38:29 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.7ms | Allocations: 1580)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3444)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 3715)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:38:30 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2658)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms | Allocations: 2922)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:38:32 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.7ms | Allocations: 1546)
+  Rendered events/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1625)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 3397)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 3667)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:38:33 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.3ms | Allocations: 46)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 15.3ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 3702)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.5ms | Allocations: 4637)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 11:38:41 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 2.6ms | Allocations: 736)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 815)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 2583)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 2856)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 11:38:41 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 2671)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms | Allocations: 2934)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 11:38:42 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 1.4ms | Allocations: 779)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 858)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 2626)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 2899)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 11:38:44 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 2658)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.2ms | Allocations: 2921)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 11:39:09 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 4.3ms | Allocations: 1546)
+  Rendered events/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1625)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3397)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 3667)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 11:47:06 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 950)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 2992)
+Completed 200 OK in 18ms (Views: 12.5ms | ActiveRecord: 4.7ms | Allocations: 3256)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 11:47:07 +0200
+  
+ActionController::RoutingError (uninitialized constant CheckoutController):
+  
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 11:47:07 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.3ms | Allocations: 46)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 12.9ms | Allocations: 2613)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 3787)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.7ms | Allocations: 4763)
+
+
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-05-10 12:01:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 80.5ms | Allocations: 16095)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 269.8ms | Allocations: 67500)
+Completed 200 OK in 638ms (Views: 272.7ms | ActiveRecord: 3.2ms | Allocations: 355866)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 12:01:39 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.8ms | Allocations: 457)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 30.3ms | Allocations: 9113)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 10274)
+Completed 200 OK in 65ms (Views: 32.7ms | ActiveRecord: 1.9ms | Allocations: 17573)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:01:41 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1135)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/checkout_controller.rb:5:in `create'
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 12:06:38 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 7.1ms | Allocations: 2018)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2299)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 4094)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.1ms | Allocations: 4683)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:06:39 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 875)
+
+
+  
+Stripe::AuthenticationError (No API key provided. Set your API key using "Stripe.api_key = <API-KEY>". You can generate API keys from the Stripe web interface. See https://stripe.com/api for details, or email support@stripe.com if you have any questions.):
+  
+app/controllers/checkout_controller.rb:5:in `create'
+[dotenv] Set [36mPUBLISHABLE_KEY[0m and [36mSECRET_KEY[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-05-10 12:07:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 130.0ms | Allocations: 16112)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 307.3ms | Allocations: 63512)
+Completed 200 OK in 493ms (Views: 309.1ms | ActiveRecord: 4.5ms | Allocations: 84876)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 12:07:07 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 661)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2667)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.3ms | Allocations: 2933)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 12:07:08 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.2ms | Allocations: 457)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 31.1ms | Allocations: 9101)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 10276)
+Completed 200 OK in 62ms (Views: 35.1ms | ActiveRecord: 1.3ms | Allocations: 17595)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:07:10 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a1J3T5PGBDjXevaZRTmlC8LVBaeUYVsxG0LwQCHsJA0O8OsarCyZJCtlrK#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 2312ms (ActiveRecord: 0.0ms | Allocations: 4979)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:08:21 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a1pSBRvAlevGKOLiiaH7VzhKPTOHZRErba6nzCpTMlw6NW6CAUhd6hARPB#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 695ms (ActiveRecord: 0.0ms | Allocations: 3384)
+
+
+[dotenv] Set [36mPUBLISHABLE_KEY[0m and [36mSECRET_KEY[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour4/eventbritev2/config/environment.rb:5)
+Started GET "/events/1/edit" for 127.0.0.1 at 2024-05-10 12:12:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 12:12:37 +0200
+  Rendering layout layouts/application.html.erb
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 36.4ms | Allocations: 5431)
+  Rendered events/edit.html.erb within layouts/application (Duration: 40.4ms | Allocations: 6015)
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 4.1ms | Allocations: 1317)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1752)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 316.6ms | Allocations: 60413)
+  Rendered layout layouts/application.html.erb (Duration: 69.6ms | Allocations: 9068)
+Completed 200 OK in 704ms (Views: 331.9ms | ActiveRecord: 4.7ms | Allocations: 100189)
+
+
+Completed 200 OK in 144ms (Views: 74.2ms | ActiveRecord: 2.4ms | Allocations: 31251)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 12:12:39 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.9ms | Allocations: 340)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 43.5ms | Allocations: 8935)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | Allocations: 10110)
+Completed 200 OK in 97ms (Views: 48.0ms | ActiveRecord: 1.0ms | Allocations: 12362)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 12:12:41 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 4.3ms | Allocations: 779)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 858)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 2633)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.1ms | Allocations: 2917)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:12:42 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a11xdhVTfU4UJ6N36Zq6cKR15bwsozZ67tzsF451EmxzOsTlQAkcJzhhLE#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 594ms (ActiveRecord: 0.0ms | Allocations: 4981)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 12:12:51 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 960)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 2956)
+Completed 200 OK in 24ms (Views: 15.7ms | ActiveRecord: 0.5ms | Allocations: 3305)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 12:12:53 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.6ms | Allocations: 46)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 14.6ms | Allocations: 2566)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 3727)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 0.8ms | Allocations: 4662)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:12:55 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a1IZ3a3R839MiDG6zvB7Bc4dXUsOrrjem4R9gdclLsltkaL07MI99rPwMW#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 572ms (ActiveRecord: 0.0ms | Allocations: 3380)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:13:04 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a1GHdL7qgGuScyr7vbUO3IrfHOh31W4nDeZcz2kBtCPHAAAFDVPwsjXrtI#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 560ms (ActiveRecord: 0.0ms | Allocations: 3398)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 12:15:36 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a1NYFPWIfKRVuM3BxBPduDjT71ioZJm4CX9eqFC9n0Iz4Zfknd9syjRpcY#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 650ms (ActiveRecord: 0.0ms | Allocations: 4361)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 12:17:39 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 5455)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 57.8ms | Allocations: 25705)
+Completed 200 OK in 75ms (Views: 59.1ms | ActiveRecord: 2.8ms | Allocations: 28699)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 12:17:40 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 8.1ms | Allocations: 2183)
+  Rendered events/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2462)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 4240)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.1ms | Allocations: 4583)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 12:17:42 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.1ms | Allocations: 1540)
+  Rendered events/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1619)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 3391)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 3661)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 12:17:45 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1576)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 2741)
+Completed 200 OK in 27ms (Views: 16.3ms | ActiveRecord: 0.5ms | Allocations: 5685)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 15:59:56 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1185)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 15815)
+Completed 200 OK in 62ms (Views: 33.3ms | ActiveRecord: 2.6ms | Allocations: 24647)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 15:59:59 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 4512)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 6516)
+Completed 200 OK in 26ms (Views: 15.1ms | ActiveRecord: 0.3ms | Allocations: 8903)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:00:01 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:67:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms | Allocations: 3636)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:00:01 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 2659)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 2924)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:00:04 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:67:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.3ms | Allocations: 1886)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:00:04 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2684)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.3ms | Allocations: 2951)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:00:05 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:67:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 0.3ms | Allocations: 1851)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:00:05 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2674)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 2940)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:00:07 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 7.0ms | Allocations: 2166)
+  Rendered events/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2443)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 4215)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms | Allocations: 4558)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:00:08 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 659)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 2664)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 2929)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:00:10 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:67:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:77:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms | Allocations: 1854)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:00:10 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 659)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 2677)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.4ms | Allocations: 2943)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:02:12 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 5451)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 25731)
+Completed 200 OK in 55ms (Views: 38.7ms | ActiveRecord: 3.1ms | Allocations: 29469)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:02:13 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:63:in `set_event'
+  [1m[36mCACHE Event Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.9ms | Allocations: 313)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 23.8ms | Allocations: 6332)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 7507)
+Completed 200 OK in 48ms (Views: 26.9ms | ActiveRecord: 1.6ms | Allocations: 13067)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 16:02:15 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 4.0ms | Allocations: 1168)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1445)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3228)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.1ms | Allocations: 3807)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:11:52 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:11:53 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:14:12 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 2.6ms | Allocations: 14622)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:14:12 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 987)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 16492)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.3ms | Allocations: 17606)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:14:15 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.4ms | Allocations: 2168)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:14:15 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 2695)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.2ms | Allocations: 2960)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:14:17 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.5ms | Allocations: 2156)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:14:17 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 659)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 2661)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 2926)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2024-05-10 16:14:18 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 0.4ms | Allocations: 2168)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:14:18 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 659)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 2666)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.3ms | Allocations: 2932)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:14:19 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 6.0ms | Allocations: 2225)
+  Rendered events/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2504)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 4287)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms | Allocations: 4630)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:14:20 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 4.0ms | Allocations: 1595)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1674)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3446)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.1ms | Allocations: 3719)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:14:21 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 5.3ms | Allocations: 1550)
+  Rendered events/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1629)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 3401)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 3673)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:14:22 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 2649)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 2914)
+
+
+Started POST "/events" for 127.0.0.1 at 2024-05-10 16:15:06 +0200
+Processing by EventsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"yolow", "description"=>"yolooooow", "start_date"=>"2025-05-25T20:00", "duration"=>"50", "price"=>"1000", "location"=>"islamabad", "user_id"=>"Thib"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:28:in `block in create'
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/events_controller.rb:28:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 8.4ms | Allocations: 2598)
+  Rendered events/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2677)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4444)
+Completed 422 Unprocessable Entity in 34ms (Views: 16.9ms | ActiveRecord: 2.9ms | Allocations: 8124)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:15:11 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 2673)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 2938)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:15:12 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.4ms | Allocations: 1556)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1635)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3421)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms | Allocations: 3698)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 16:15:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1122)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2286)
+Completed 200 OK in 17ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 5160)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:15:14 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 4.2ms | Allocations: 1568)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1647)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3419)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 3691)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:15:21 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 659)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 2661)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 2926)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:15:22 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.2ms | Allocations: 1583)
+  Rendered events/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1662)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3434)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 3706)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:15:27 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.4ms | Allocations: 1583)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1662)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3434)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 3706)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:15:28 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2712)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 2978)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:15:29 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 4.7ms | Allocations: 1568)
+  Rendered events/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1647)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 3425)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.1ms | Allocations: 3698)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2024-05-10 16:15:49 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms | Allocations: 2159)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:15:49 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2682)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 2948)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:15:51 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 6.5ms | Allocations: 1580)
+  Rendered events/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 3431)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.1ms | Allocations: 3703)
+
+
+Started DELETE "/users/sign_out?_method=delete" for 127.0.0.1 at 2024-05-10 16:15:53 +0200
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.1ms | Allocations: 2786)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:15:53 +0200
+Processing by EventsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 659)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2183)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 2494)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:15:55 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1615)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:15:55 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 659)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2132)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 2399)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:15:56 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:75:in `require_creator'
+Redirected to http://127.0.0.1:3000/events
+Filter chain halted as :require_creator rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 1624)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:15:57 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 659)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 2082)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.1ms | Allocations: 2347)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:16:19 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:16:22 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input
+Started GET "/events" for 127.0.0.1 at 2024-05-10 16:16:34 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:78: syntax error, unexpected end-of-input
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 16:16:55 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+Completed 401 Unauthorized in 16ms (ActiveRecord: 2.0ms | Allocations: 7159)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-05-10 16:16:55 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 577)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2155)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 16802)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 18605)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:16:56 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-05-10 16:42:23 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test123@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 49ms (ActiveRecord: 3.4ms | Allocations: 5288)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test123@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 115)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 866)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 2030)
+Completed 200 OK in 337ms (Views: 24.1ms | ActiveRecord: 0.0ms | Allocations: 3055)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:42:34 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 16:42:36 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 82)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 2011)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 3208)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 4170)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-05-10 16:42:43 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1234)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 2411)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 3001)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 16:43:50 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"Thibault", "last_name"=>"Lenormand"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 416)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2085)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3276)
+Completed 422 Unprocessable Entity in 344ms (Views: 13.8ms | ActiveRecord: 2.5ms | Allocations: 8969)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-05-10 16:44:03 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"yolo10@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"Thibault", "last_name"=>"Lenormand"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yolo10@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "description", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "yolo10@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-05-10 14:44:03.528109"], ["updated_at", "2024-05-10 14:44:03.528109"], ["description", nil], ["first_name", "Thibault"], ["last_name", "Lenormand"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.9ms | Allocations: 149)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.1ms | Allocations: 366)
+UserMailer#welcome_email: processed outbound mail in 13.1ms
+Delivered mail 663e32b3a1143_389f3e1c-48b@TL.mail (14.9ms)
+Date: Fri, 10 May 2024 16:44:03 +0200
+To: yolo10@gmail.com
+Message-ID: <663e32b3a1143_389f3e1c-48b@TL.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+  <h1>Bienvenue chez nous !</h1>
+  <p>Bonjour Thibault,</p>
+  <p>Merci de vous =C3=AAtre inscrit sur notre site !</p>
+  <p>Cordialement,</p>
+  <p>L'=C3=A9quipe de notre site</p>
+</body>
+</html>
+  </body>
+</html>
+
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/users/12
+Completed 303 See Other in 481ms (ActiveRecord: 14.1ms | Allocations: 30174)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2024-05-10 16:44:03 +0200
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1118)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 2371)
+Completed 200 OK in 24ms (Views: 13.5ms | ActiveRecord: 0.6ms | Allocations: 4921)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:44:11 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:44:11 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input
+Started GET "/users/13" for 127.0.0.1 at 2024-05-10 16:44:14 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 738)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 1913)
+Completed 200 OK in 16ms (Views: 8.5ms | ActiveRecord: 0.4ms | Allocations: 3914)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:44:34 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:44:35 +0200
+  
+SyntaxError (/root/THP/semaine7/jour4/eventbritev2/app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected end-of-input
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:46:13 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 5456)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 25709)
+Completed 200 OK in 59ms (Views: 42.2ms | ActiveRecord: 3.2ms | Allocations: 29457)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:46:15 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.3ms | Allocations: 313)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 17.3ms | Allocations: 6311)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 7472)
+Completed 200 OK in 40ms (Views: 20.8ms | ActiveRecord: 1.4ms | Allocations: 13035)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:46:17 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 659)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 2661)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.6ms | Allocations: 2926)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2024-05-10 16:46:57 +0200
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 9.4ms | Allocations: 2205)
+  Rendered events/edit.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2522)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 4302)
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 0.4ms | Allocations: 4977)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 16:47:01 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 2.7ms | Allocations: 1157)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1432)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3205)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 3786)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:49:16 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 659)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 2669)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 1.2ms | Allocations: 2932)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 16:51:23 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 5451)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 47.1ms | Allocations: 25698)
+Completed 200 OK in 64ms (Views: 45.3ms | ActiveRecord: 4.5ms | Allocations: 29435)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 16:51:27 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 10.7ms | Allocations: 2209)
+  Rendered events/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 2484)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 4256)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.1ms | Allocations: 4598)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 16:53:04 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.2ms | Allocations: 303)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 20.3ms | Allocations: 6295)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 7456)
+Completed 200 OK in 56ms (Views: 26.0ms | ActiveRecord: 1.8ms | Allocations: 15864)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2024-05-10 17:14:48 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.8ms | Allocations: 46)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 1], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 13.5ms | Allocations: 2650)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 3825)
+Completed 200 OK in 25ms (Views: 18.5ms | ActiveRecord: 2.6ms | Allocations: 5053)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 17:14:49 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 8.7ms | Allocations: 1146)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 1423)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 3209)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.1ms | Allocations: 3789)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 17:14:50 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 703)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 2692)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.5ms | Allocations: 2955)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 17:14:51 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 4.9ms | Allocations: 772)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 851)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 2619)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.2ms | Allocations: 2892)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2024-05-10 17:14:51 +0200
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.6ms | Allocations: 1601)
+  Rendered events/edit.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1854)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3621)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 4296)
+
+
+Started GET "/attendances/new?event_id=1" for 127.0.0.1 at 2024-05-10 17:14:52 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 6.5ms | Allocations: 762)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 841)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 2609)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.1ms | Allocations: 2883)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-10 17:14:52 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 659)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 2664)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.2ms | Allocations: 2928)
+
+
+Started POST "/checkout/create?total=68.0" for 127.0.0.1 at 2024-05-10 17:20:38 +0200
+Processing by CheckoutController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "total"=>"68.0"}
+Redirected to https://checkout.stripe.com/c/pay/cs_test_a18Xa1Y7DJr0QwnULfHL5RIhjv5c577ZsuugmEmRdstubaFEUcg1fqO9WX#fidkdWxOYHwnPyd1blpxYHZxWjA0VUBENG01NjFPcmJPSmBfPEtCXE19SnNxaUhLTGFzVFE9dXVKN2IzVE1SM203UjYxX2B0UzFIbUpQZnxVSF1pZERkXFRsa1NxbGFGSW9zblEwdlJSTWxQNTVsf25CNj18QicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+Completed 302 Found in 595ms (ActiveRecord: 0.0ms | Allocations: 3576)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-10 17:21:13 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (4.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:8
+  Rendered events/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 950)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 3019)
+Completed 200 OK in 16ms (Views: 9.3ms | ActiveRecord: 6.4ms | Allocations: 3283)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-10 17:21:15 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 7.3ms | Allocations: 1555)
+  Rendered events/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1634)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 3406)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.1ms | Allocations: 3676)
+
+

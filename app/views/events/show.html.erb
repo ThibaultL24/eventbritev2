@@ -1,17 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<div class="event-details">
+  <% if notice.present? %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
 
-<%= render @event %>
+  <div class="card">
+    <div class="card-body">
+      <%= render @event %>
+    </div>
+  </div>
 
-<div>
-  <% unless current_user.admin? || @event.attendees.include?(current_user) %>
-  <%= link_to "S'inscrire à cet événement", new_attendance_path(event_id: @event.id), class: "btn btn-primary" %>
-<% end %>
-<% if current_user == @event.user %>
-  <%= link_to "Voir les invités", event_attendances_path(@event), class: "btn btn-secondary" %>
-<% end %>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
+  <div class="event-actions mt-3">
+    <% unless current_user.admin? || @event.attendees.include?(current_user) %>
+      <%= link_to "S'inscrire à cet événement", new_attendance_path(event_id: @event.id), class: "btn btn-primary mr-2 mb-2" %>
+    <% end %>
 
-  <%= button_to "Destroy this event", @event, method: :delete %>
-  <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @event.price), class: "btn btn-primary", remote: true %>
+    <% if current_user == @event.user %>
+      <%= link_to "Voir les invités", event_attendances_path(@event), class: "btn btn-secondary mr-2 mb-2" %>
+    <% end %>
+
+    <%= link_to "Modifier cet événement", edit_event_path(@event), class: "btn btn-warning mr-2 mb-2" %>
+    <%= button_to "Supprimer cet événement", @event, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet événement ?' }, class: "btn btn-danger mr-2 mb-2" %>
+    <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @event.price), class: "btn btn-success mr-2 mb-2", remote: true %>
+    <%= link_to "Retour aux événements", events_path, class: "btn btn-primary mr-2 mb-2" %>
+  </div>
 </div>
