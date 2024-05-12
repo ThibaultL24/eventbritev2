@@ -81,3 +81,6 @@ body {
 .btn-primary:hover {
   opacity: 0.8;
 }
+
+.profile-actions {
+  margin-top: 20px;

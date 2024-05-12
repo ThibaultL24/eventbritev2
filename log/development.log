@@ -14400,3 +14400,1524 @@ Processing by EventsController#show as HTML
 Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.6ms | Allocations: 4702)
 
 
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour6/eventbritev2/config/environment.rb:5)
+Started GET "/events/2" for 127.0.0.1 at 2024-05-12 21:42:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.6ms | Allocations: 494)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 2], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 59.1ms | Allocations: 21864)
+  Rendered layout layouts/application.html.erb (Duration: 162.5ms | Allocations: 67771)
+Completed 200 OK in 505ms (Views: 167.1ms | ActiveRecord: 3.0ms | Allocations: 380588)
+
+
+Started GET "/events/2/edit" for 127.0.0.1 at 2024-05-12 21:43:02 +0200
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 8.4ms | Allocations: 3538)
+  Rendered events/edit.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3870)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 5657)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.2ms | Allocations: 6358)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:43:03 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.7ms | Allocations: 1549)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1763)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3562)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 3919)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:43:07 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1614)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2799)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 5751)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:43:18 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 2.2ms | Allocations: 1547)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1627)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3441)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 3731)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:43:19 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1801)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3418)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 3779)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:43:22 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3102)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 3375)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2024-05-12 21:43:23 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.1ms | Allocations: 46)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 2], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2569)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3750)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 4696)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:43:24 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.7ms | Allocations: 1559)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1639)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3431)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3711)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:43:26 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1935)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 3938)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:44:40 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1236)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 20319)
+Completed 200 OK in 31ms (Views: 15.7ms | ActiveRecord: 1.5ms | Allocations: 29820)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:44:42 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1935)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 3922)
+
+
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour6/eventbritev2/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:44:53 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 136.3ms | Allocations: 43254)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 189.6ms | Allocations: 76912)
+Completed 200 OK in 413ms (Views: 192.9ms | ActiveRecord: 1.8ms | Allocations: 366361)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:44:56 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 9.5ms | Allocations: 3545)
+  Rendered events/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3867)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 5667)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.1ms | Allocations: 6048)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:44:56 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1699)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2884)
+Completed 200 OK in 13ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 5965)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-05-12 21:44:58 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.1ms | Allocations: 2360)
+
+
+  
+ActionController::MissingExactTemplate (UsersController#index is missing a template for request formats: text/html):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2024-05-12 21:45:05 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.1ms | Allocations: 1989)
+
+
+  
+ActionController::MissingExactTemplate (UsersController#index is missing a template for request formats: text/html):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:45:08 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 1948)
+Completed 200 OK in 9ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 3947)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:09 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.6ms | Allocations: 1566)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1646)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3451)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 3733)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:45:13 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1483)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3110)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 3384)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2024-05-12 21:45:15 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.3ms | Allocations: 425)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 2], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 19.6ms | Allocations: 8917)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10101)
+Completed 200 OK in 45ms (Views: 22.6ms | ActiveRecord: 1.2ms | Allocations: 17351)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:23 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.7ms | Allocations: 1546)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1626)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3418)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 3698)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:45:24 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3092)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 3365)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:45:25 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3092)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 3365)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:45:27 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1494)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 3120)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.3ms | Allocations: 3395)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:29 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.8ms | Allocations: 1559)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1639)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3432)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 3712)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:45:31 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3120)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 3393)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:32 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.6ms | Allocations: 1559)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1639)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3434)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3714)
+
+
+Started GET "/events/6" for 127.0.0.1 at 2024-05-12 21:45:34 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.2ms | Allocations: 45)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 6], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3718)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.5ms | Allocations: 4664)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:45:35 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1935)
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 3932)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:39 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.6ms | Allocations: 1543)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1623)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3428)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 3710)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:39 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.9ms | Allocations: 1547)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1627)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3420)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3700)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:45:40 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3095)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 3368)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:41 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.8ms | Allocations: 1559)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1639)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3434)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 3714)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:45:41 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.6ms | Allocations: 1537)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1617)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3409)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 3689)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:45:43 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3101)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.3ms | Allocations: 3374)
+
+
+Started PUT "/users" for 127.0.0.1 at 2024-05-12 21:45:49 +0200
+Processing by Devise::RegistrationsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"test", "last_name"=>"123"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+[31mUnpermitted parameters: :first_name, :last_name. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007f26374d1368>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"test", "last_name"=>"123"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 712)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3145)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 4437)
+Completed 422 Unprocessable Entity in 196ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 10133)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:45:52 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3107)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 3381)
+
+
+Started GET "/admin" for 127.0.0.1 at 2024-05-12 21:46:02 +0200
+Processing by Admin::AttendancesController#index as HTML
+  Rendering layout /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/layouts/administrate/application.html.erb
+  Rendering /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_index_header.html.erb (Duration: 2.5ms | Allocations: 1412)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.6ms | Allocations: 155)
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection.html.erb (Duration: 9.4ms | Allocations: 5642)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_pagination.html.erb (Duration: 3.7ms | Allocations: 1152)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 19.7ms | Allocations: 9767)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.4ms | Allocations: 2008)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_icons.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_navigation.html.erb (Duration: 4.2ms | Allocations: 1971)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_flashes.html.erb (Duration: 0.7ms | Allocations: 255)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_javascript.html.erb (Duration: 3.2ms | Allocations: 2168)
+  Rendered layout /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/layouts/administrate/application.html.erb (Duration: 35.6ms | Allocations: 19055)
+Completed 200 OK in 50ms (Views: 38.4ms | ActiveRecord: 0.1ms | Allocations: 23158)
+
+
+Started GET "/admin/events" for 127.0.0.1 at 2024-05-12 21:46:05 +0200
+Processing by Admin::EventsController#index as HTML
+  Rendering layout /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/layouts/administrate/application.html.erb
+  Rendering /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_search.html.erb (Duration: 1.2ms | Allocations: 484)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_index_header.html.erb (Duration: 3.3ms | Allocations: 2012)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | Allocations: 33)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.8ms | Allocations: 157)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 3.2ms | Allocations: 1960)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 2]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.4ms | Allocations: 1863)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.8ms | Allocations: 145)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 1.8ms | Allocations: 472)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 3]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 3]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 8.1ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.1ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 4]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.9ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 4]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.4ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.1ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 5]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 5]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.8ms | Allocations: 1807)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 6]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 6]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 3.3ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.6ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 7]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.7ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 7]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.7ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 8]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.5ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 8]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.9ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 9]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.0ms | Allocations: 1644)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 9]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.4ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 10]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1644)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 10]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."event_id" = ?[0m  [["event_id", 11]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1644)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 11]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1787)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection.html.erb (Duration: 94.9ms | Allocations: 49802)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_pagination.html.erb (Duration: 0.7ms | Allocations: 142)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 100.2ms | Allocations: 52652)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.6ms | Allocations: 1781)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_navigation.html.erb (Duration: 2.4ms | Allocations: 1547)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_javascript.html.erb (Duration: 1.4ms | Allocations: 1911)
+  Rendered layout /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/layouts/administrate/application.html.erb (Duration: 109.7ms | Allocations: 59435)
+Completed 200 OK in 114ms (Views: 107.7ms | ActiveRecord: 3.2ms | Allocations: 60633)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2024-05-12 21:46:05 +0200
+Processing by Admin::UsersController#index as HTML
+  Rendering layout /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/layouts/administrate/application.html.erb
+  Rendering /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_search.html.erb (Duration: 1.0ms | Allocations: 236)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_index_header.html.erb (Duration: 2.8ms | Allocations: 1572)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | Allocations: 33)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 4.8ms | Allocations: 1650)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.7ms | Allocations: 1924)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 1.0ms | Allocations: 246)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.1ms | Allocations: 1644)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.5ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.1ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.4ms | Allocations: 1644)
+  [1m[36mEvent Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.9ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.0ms | Allocations: 1644)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.7ms | Allocations: 1644)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 7]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 7]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.5ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 8]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 8]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.7ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.1ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.1ms | Allocations: 1644)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 10]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 10]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.8ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 11]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 11]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 12]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 12]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 4.8ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.3ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 13]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 13]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.5ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 14]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.8ms | Allocations: 1644)
+  [1m[36mEvent Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 14]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.8ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 15]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.4ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 15]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.6ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.3ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 16]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.1ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 16]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.9ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 17]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.0ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 17]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.4ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 18]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1644)
+  [1m[36mEvent Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 18]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.5ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 19]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.2ms | Allocations: 1644)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 19]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mAttendance Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 20]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 1.9ms | Allocations: 1644)
+  [1m[36mEvent Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "attendances" ON "events"."id" = "attendances"."event_id" WHERE "attendances"."user_id" = ?[0m  [["user_id", 20]]
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/has_many/_index.html.erb (Duration: 2.3ms | Allocations: 1793)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/fields/text/_index.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_collection.html.erb (Duration: 161.6ms | Allocations: 94309)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_pagination.html.erb (Duration: 8.1ms | Allocations: 3412)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 173.7ms | Allocations: 99989)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_stylesheet.html.erb (Duration: 1.5ms | Allocations: 1746)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_navigation.html.erb (Duration: 1.4ms | Allocations: 1547)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/administrate/application/_javascript.html.erb (Duration: 1.5ms | Allocations: 1873)
+  Rendered layout /root/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/administrate-0.20.1/app/views/layouts/administrate/application.html.erb (Duration: 180.8ms | Allocations: 106677)
+Completed 200 OK in 185ms (Views: 175.3ms | ActiveRecord: 6.5ms | Allocations: 107858)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:46:07 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1490)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3124)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 3397)
+
+
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /root/THP/semaine7/jour6/eventbritev2/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:52:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 131.8ms | Allocations: 43733)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 188.8ms | Allocations: 77397)
+Completed 200 OK in 415ms (Views: 190.9ms | ActiveRecord: 2.7ms | Allocations: 366841)
+
+
+Started GET "/events/5" for 127.0.0.1 at 2024-05-12 21:52:45 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.4ms | Allocations: 462)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 5], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 17.9ms | Allocations: 9130)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 10311)
+Completed 200 OK in 41ms (Views: 19.6ms | ActiveRecord: 1.5ms | Allocations: 17618)
+
+
+Started GET "/attendances/new?event_id=5" for 127.0.0.1 at 2024-05-12 21:52:48 +0200
+Processing by AttendancesController#new as HTML
+  Parameters: {"event_id"=>"5"}
+  Rendering layout layouts/application.html.erb
+  Rendering attendances/new.html.erb within layouts/application
+  Rendered attendances/_form.html.erb (Duration: 4.1ms | Allocations: 2040)
+  Rendered attendances/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2330)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 4130)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.1ms | Allocations: 4765)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:52:50 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1489)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3108)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 3387)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:52:51 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 7.2ms | Allocations: 2715)
+  Rendered events/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2997)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4796)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.1ms | Allocations: 5153)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:52:54 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1626)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2811)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 5756)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:52:57 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1483)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3094)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 3369)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:53:09 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1935)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.1ms | Allocations: 3922)
+
+
+Started GET "/users" for 127.0.0.1 at 2024-05-12 21:53:10 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.1ms | Allocations: 2328)
+
+
+  
+ActionController::MissingExactTemplate (UsersController#index is missing a template for request formats: text/html):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:53:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1948)
+Completed 200 OK in 9ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 3947)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:53:15 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1494)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3127)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 3402)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2024-05-12 21:53:17 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.2ms | Allocations: 46)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 2], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2547)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3728)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.4ms | Allocations: 4673)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:53:18 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3108)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 3381)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:55:43 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1230)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 20314)
+Completed 200 OK in 40ms (Views: 19.8ms | ActiveRecord: 1.6ms | Allocations: 29823)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:55:44 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 5874)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 7522)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 0.5ms | Allocations: 9930)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:55:46 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.8ms | Allocations: 2158)
+  Rendered events/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2434)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4226)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 4578)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:55:47 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1936)
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 3929)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:55:48 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1482)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3112)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:56:55 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 5393)
+Completed 200 OK in 20ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 7381)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:56:57 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.6ms | Allocations: 1522)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1602)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3394)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3674)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:56:58 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.8ms | Allocations: 1547)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1627)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3419)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 3699)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:57:00 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3111)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:57:07 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.7ms | Allocations: 1562)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1642)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3446)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3728)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:57:07 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1483)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3125)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 3398)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2024-05-12 21:57:08 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 1.3ms | Allocations: 301)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 2], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 12.8ms | Allocations: 6239)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 7420)
+Completed 200 OK in 32ms (Views: 14.1ms | ActiveRecord: 1.4ms | Allocations: 16004)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:57:29 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1936)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 3919)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:57:30 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.8ms | Allocations: 1547)
+  Rendered events/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1627)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3419)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3699)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:57:49 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 2.8ms | Allocations: 2223)
+  Rendered events/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2520)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 26975)
+Completed 200 OK in 38ms (Views: 23.7ms | ActiveRecord: 2.7ms | Allocations: 35138)
+
+
+Started GET "/events" for 127.0.0.1 at 2024-05-12 21:57:52 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1843)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3473)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.3ms | Allocations: 3873)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2024-05-12 21:57:53 +0200
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:65:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.9ms | Allocations: 303)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 2], ["id", 24], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:19
+  Rendered events/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 6287)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 7479)
+Completed 200 OK in 29ms (Views: 14.6ms | ActiveRecord: 1.4ms | Allocations: 13066)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:57:55 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3111)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2024-05-12 21:57:55 +0200
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 1.6ms | Allocations: 1547)
+  Rendered events/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1632)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3424)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 3704)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-12 21:57:57 +0200
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:11
+  Rendered events/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1481)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3101)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 3374)
+
+
+Started GET "/users/24" for 127.0.0.1 at 2024-05-12 21:58:00 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:83:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1162)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2358)
+Completed 200 OK in 14ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 5283)
+
+
