@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenue sur la page d'accueil</title>
+  <%= stylesheet_link_tag 'application' %>
 </head>
 <body>
-<div class="card-container">
-  <% @events.each do |event| %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= event.title %></h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary"><%= event.description %></h6>
-        <p>Voir l'événement : <%= link_to "ici", event_path(event) %></p>
+  <div class="container">
+    <% @events.each do |event| %>
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title"><%= event.title %></h2>
+          <p class="card-description"><%= event.description %></p>
+          <a class="card-link" href="<%= event_path(event) %>">Voir l'événement</a>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
-
-<%= link_to "New event", new_event_path %>
+    <% end %>
+  </div>
+  <%= link_to "Nouvel événement", new_event_path, class: "btn btn-primary new-event-link" %>
 </body>
 </html>

@@ -1,24 +1,27 @@
-<h1>User Profile</h1>
+<div class="user-profile">
+  <h1>User Profile</h1>
 
-<%= form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, class: "form-control", autocomplete: "given-name" %>
-  </div>
+  <%= form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
+    <div class="form-group">
+      <%= f.label :first_name, class: "form-label" %><br />
+      <%= f.text_field :first_name, class: "form-control", autocomplete: "given-name" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, class: "form-control", autocomplete: "family-name" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :last_name, class: "form-label" %><br />
+      <%= f.text_field :last_name, class: "form-control", autocomplete: "family-name" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control", disabled: true %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email, class: "form-label" %><br />
+      <%= f.email_field :email, class: "form-control", disabled: true %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update", class: "btn btn-primary" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Update", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Back', users_path, class: "btn btn-secondary mt-3" %>
+</div>
+
